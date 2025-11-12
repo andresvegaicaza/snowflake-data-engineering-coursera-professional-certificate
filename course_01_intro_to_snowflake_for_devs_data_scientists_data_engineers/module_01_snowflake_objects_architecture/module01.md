@@ -1,6 +1,10 @@
 ## 🧠 Learning Summary — Snowflake SQL Labs
 
-This series of SQL scripts builds step-by-step knowledge of Snowflake’s core features, from basic setup to advanced data handling.
+This repository documents my learning journey through the  
+[**Snowflake Data Engineering Professional Certificate on Coursera**](https://www.coursera.org/professional-certificates/snowflake-data-engineering#courses).  
+All SQL scripts included here were **provided as part of the course content** and executed to reinforce key data engineering concepts.
+
+---
 
 | # | Topic | Description |
 |:-:|:------|:-------------|
@@ -18,12 +22,13 @@ This series of SQL scripts builds step-by-step knowledge of Snowflake’s core f
 ---
 
 ### 🏁 Key Takeaways
-- Understand Snowflake’s **core architecture** and **compute/storage separation**.  
+- Learn and apply Snowflake’s **core architecture** and **compute/storage separation**.  
 - Build and manage **data ingestion pipelines** using external stages and `COPY INTO`.  
 - Configure **warehouses for performance and cost optimization**.  
 - Handle **structured and semi-structured data** seamlessly with SQL.  
-- Create **views, schemas, and data layers** supporting analytics workflows.  
+- Create **views, schemas, and multi-layered data models** supporting analytics workflows.  
 
 ---
 
-> These exercises together form a solid foundation in Snowflake’s Data Engineering workflow — from raw data ingestion to analytics-ready design.
+> 💡 *All SQL files are derived from course-provided labs and examples.  
+> The goal of this repository is to document understanding, not to distribute proprietary content.*
