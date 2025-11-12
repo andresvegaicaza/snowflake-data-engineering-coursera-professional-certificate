@@ -1,33 +1,25 @@
-# My Journey Learning Snowflake with Snowflake Data Engineering Professional Certificate on Coursera ☁️  
-*Documenting my hands-on labs, key concepts, and projects from the [Snowflake Data Engineering Professional Certificate on Coursera](https://www.coursera.org/professional-certificates/snowflake-data-engineering#courses).*
-
----
+# My Journey Learning Snowflake ☁️
+*Documenting hands-on labs, key concepts, and projects from the
+[Snowflake Data Engineering Professional Certificate](https://www.coursera.org/professional-certificates/snowflake-data-engineering).*
 
 ## 📘 Overview
-This repository chronicles my learning experience through the **Snowflake Data Engineering Specialization**, including practical labs, notes, and projects that explore **modern data engineering, scalability, and cloud-native design**.
+This repo captures my progress through Snowflake’s **3-course** professional certificate.
+Some SQL notebooks and scripts are **provided by Snowflake’s official labs**; others are **my own additions** (experiments, refactors, test data, and utility snippets) to mirror real-world engineering workflows.
 
----
+## 🧭 Courses in the Series (3)
+1. **Intro to Snowflake for Devs, Data Scientists, Data Engineers**
+2. **Introduction to Modern Data Engineering with Snowflake**
+3. **Advanced Data Engineering with Snowflake**
 
-## 🧭 Courses in the Specialization
-1. [Introduction to Modern Data Engineering with Snowflake](https://www.coursera.org/learn/intro-modern-data-engineering-snowflake)
-2. [Data Warehousing and Pipelines with Snowflake](https://www.coursera.org/learn/data-warehousing-pipelines-snowflake)
-3. [Advanced Data Engineering with Snowflake](https://www.coursera.org/learn/advanced-data-engineering-snowflake)
-4. [Capstone Project: Data Engineering with Snowflake](https://www.coursera.org/learn/snowflake-data-engineering-capstone)
+## 🎯 What You Learn (high level)
+- Ingest data at scale (cloud object storage / Marketplace)  
+- Transform with **SQL** and optionally **Python**  
+- Deliver data products and visual insights  
+- **Orchestrate data pipelines** end-to-end  
+- Apply **DevOps best practices** for data pipelines  
+- Implement **observability** for data pipelines
 
----
-
-## 🧩 Key Concepts & Learnings
-| Topic | Description |
-|-------|--------------|
-| **Snowflake Architecture** | Separation of compute and storage, virtual warehouses, and cloud services layer |
-| **Data Loading & Staging** | COPY command, internal/external stages, and data ingestion best practices |
-| **Time Travel & Cloning** | Data versioning, recovery, and zero-copy cloning |
-| **Performance Optimization** | Micro-partitioning, caching, and query profiling |
-| **Security & Governance** | RBAC, masking policies, and secure data sharing |
-| **Pipelines & Automation** | Streams, Tasks, Snowpipe, and orchestration |
-
----
-
-## 🧠 Hands-on Labs
-Each folder in this repository corresponds to one or more guided labs from the specialization:
+## 🧠 About the Code
+- **Course-provided**: official lab SQL used as-is to practice fundamentals  
+- **Custom**: my own enhancements (performance tweaks, schema variants, diagnostics, and ad-hoc checks) to deepen understanding
 
