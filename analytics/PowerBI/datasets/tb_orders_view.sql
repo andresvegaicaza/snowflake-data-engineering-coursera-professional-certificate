@@ -1,9 +1,12 @@
-USE DATABASE TASTY_BYTES;
-CREATE SCHEMA IF NOT EXISTS ANALYTICS;
+----------------------------------------------------------------------
+-- View: FCT_ORDERS
+-- Purpose: Fact table joining order headers and details for sales analysis
+----------------------------------------------------------------------
+
+USE ROLE SYSADMIN;
+USE DATABASE TASTY_BYTES_CLONE;
 USE SCHEMA ANALYTICS;
 
-
--- 3️⃣ Orders Fact View
 CREATE OR REPLACE VIEW FCT_ORDERS AS
 SELECT
   oh.ORDER_ID,

@@ -1,43 +1,31 @@
--- Run with a powerful role (e.g., ACCOUNTADMIN). Switch roles as shown.
+----------------------------------------------------------------------
+-- 01_roles.sql  — create project roles and hierarchy
+-- Run as: SECURITYADMIN
+----------------------------------------------------------------------
 
--- 1) Warehouse for BI (optional but recommended)
-use role SYSADMIN;
+USE ROLE SECURITYADMIN;
 
-create warehouse if not exists POWERBI_WH
-  warehouse_size = 'XSMALL'
-  auto_suspend   = 60
-  auto_resume    = true
-  initially_suspended = true
-  comment = 'Small warehouse dedicated to Power BI queries';
+-- Project roles
+CREATE ROLE IF NOT EXISTS ANALYTICS_DEV_ROLE;
+CREATE ROLE IF NOT EXISTS POWERBI_READ_ROLE;
 
--- 2) Read-only role
-use role SECURITYADMIN;
+-- Dev > Read (dev inherits read)
+GRANT ROLE POWERBI_READ_ROLE TO ROLE ANALYTICS_DEV_ROLE;
 
-create role if not exists POWERBI_READER
-  comment = 'Read-only access to TASTY_BYTES.ANALYTICS for Power BI';
+-- Ensure platform visibility via SYSADMIN
+GRANT ROLE ANALYTICS_DEV_ROLE TO ROLE SYSADMIN;
+GRANT ROLE POWERBI_READ_ROLE  TO ROLE SYSADMIN;
 
--- 3) Power BI user (set a proper temporary password)
-create user if not exists PBI_TASTY_BYTES
-  login_name           = 'PBI_TASTY_BYTES'
-  display_name         = 'Power BI – Tasty Bytes'
-  must_change_password = true
-  password             = 'Temp-ChangeMe-123!'   -- CHANGE THIS
-  default_role         = POWERBI_READER
-  default_warehouse    = POWERBI_WH
-  default_namespace    = TASTY_BYTES.ANALYTICS;
 
--- 4) Attach role to user
-grant role POWERBI_READER to user PBI_TASTY_BYTES;
+CREATE USER IF NOT EXISTS powerbi_dev
+  PASSWORD = 'yourpassword'
+  LOGIN_NAME = 'powerbi_dev'
+  DISPLAY_NAME = 'Power BI Developer'
+  EMAIL = 'powerbidev@example.com'
+  DEFAULT_ROLE = ANALYTICS_DEV_ROLE
+  DEFAULT_WAREHOUSE = ANALYTICS_WH
+  MUST_CHANGE_PASSWORD = TRUE;
 
--- 5) Least-privilege grants (USAGE + SELECT on ANALYTICS only)
-grant usage on warehouse POWERBI_WH            to role POWERBI_READER;
-grant usage on database  TASTY_BYTES           to role POWERBI_READER;
-grant usage on schema    TASTY_BYTES.ANALYTICS to role POWERBI_READER;
 
--- Existing objects
-grant select on all tables in schema TASTY_BYTES.ANALYTICS to role POWERBI_READER;
-grant select on all views  in schema TASTY_BYTES.ANALYTICS to role POWERBI_READER;
+GRANT ROLE ANALYTICS_DEV_ROLE TO USER powerbi_dev;
 
--- Future-proof
-grant select on future tables in schema TASTY_BYTES.ANALYTICS to role POWERBI_READER;
-grant select on future views  in schema TASTY_BYTES.ANALYTICS to role POWERBI_READER;
